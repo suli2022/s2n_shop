@@ -1,0 +1,7 @@
+products (
+    name szöveg,
+    itemNumber szöveg,
+    count szám,
+    price szám
+    )
+
