@@ -1,5 +1,8 @@
+import java.util.ArrayList;
+
 import models.DataService;
 import models.MariadbDatabase;
+import models.Product;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -12,5 +15,8 @@ public class App {
                 "shop",
                 "titok")  
                 );
+        
+        ArrayList<Product> productList = dataService.getProducts();
+        System.out.println(productList.get(0).getName());
     }
 }
