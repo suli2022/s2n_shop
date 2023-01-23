@@ -1,0 +1,18 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "CPU",
+      "itemNumber": "aa33",
+      "count": 30,
+      "price": 8
+    },
+    {
+      "id": 2,
+      "name": "egér",
+      "itemNumber": "bb42",
+      "count": 17,
+      "price": 4.2
+    }  
+  ]
+}

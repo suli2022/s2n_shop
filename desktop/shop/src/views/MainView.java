@@ -18,6 +18,7 @@ import models.Restapi;
 public class MainView extends VBox{
     Label productLabel;
     DataService dataService;
+    Restapi restapi;
     TableView<Product> tableView;
     public MainView() {
         productLabel = new Label("Termékek");
@@ -61,11 +62,11 @@ public class MainView extends VBox{
     }
     private ObservableList<Product> getProducts() {
         ObservableList<Product> productList = 
-        FXCollections.observableArrayList(dataService.getProducts());
+        FXCollections.observableArrayList(restapi.getProducts());
         return productList;
     }
     private void initData() {
-        // new Restapi();
+        this.restapi = new Restapi();
         dataService = new DataService(new MariadbDatabase(
             "shop",
             "shop",
