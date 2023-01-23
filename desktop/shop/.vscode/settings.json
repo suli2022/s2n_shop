@@ -11,6 +11,7 @@
         "c:\\Users\\andras\\Library\\javafx\\javafx-sdk-19\\lib\\javafx.media.jar",
         "c:\\Users\\andras\\Library\\javafx\\javafx-sdk-19\\lib\\javafx.swing.jar",
         "c:\\Users\\andras\\Library\\javafx\\javafx-sdk-19\\lib\\javafx.web.jar",
-        "c:\\Users\\andras\\Library\\javafx\\javafx-sdk-19\\lib\\javafx-swt.jar"
+        "c:\\Users\\andras\\Library\\javafx\\javafx-sdk-19\\lib\\javafx-swt.jar",
+        "d:\\SA\\Library\\gson\\gson-2.10.1.jar"
     ]
 }

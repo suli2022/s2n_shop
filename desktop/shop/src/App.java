@@ -1,22 +1,17 @@
-import java.util.ArrayList;
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import views.MainView;
 
-import models.DataService;
-import models.MariadbDatabase;
-import models.Product;
 
-public class App {
-    public static void main(String[] args) throws Exception {
-        System.out.println("Adatbázis elérés");
-        //TODO: Az adatbázis kapcsolat nem működik,
-        // helyes adatokkal sem
-        DataService dataService = new DataService( 
-            new MariadbDatabase(
-                "shop",
-                "shop",
-                "titok")  
-                );
-        
-        ArrayList<Product> productList = dataService.getProducts();
-        System.out.println(productList.get(0).getName());
+public class App extends Application {
+    public static void main(String[] args) {
+        launch(args);
+    }
+    public void start(Stage stage) {
+        MainView mainView = new MainView();
+        Scene scene = new Scene(mainView, 400, 300);
+        stage.setScene(scene);
+        stage.show();
     }
 }

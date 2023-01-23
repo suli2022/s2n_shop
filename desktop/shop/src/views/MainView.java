@@ -13,6 +13,7 @@ import javafx.scene.layout.VBox;
 import models.DataService;
 import models.MariadbDatabase;
 import models.Product;
+import models.Restapi;
 
 public class MainView extends VBox{
     Label productLabel;
@@ -64,6 +65,7 @@ public class MainView extends VBox{
         return productList;
     }
     private void initData() {
+        // new Restapi();
         dataService = new DataService(new MariadbDatabase(
             "shop",
             "shop",
