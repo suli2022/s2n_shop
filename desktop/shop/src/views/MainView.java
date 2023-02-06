@@ -67,11 +67,11 @@ public class MainView extends VBox{
     }
     private void initData() {
         this.restapi = new Restapi();
-        dataService = new DataService(new MariadbDatabase(
-            "shop",
-            "shop",
-            "titok"
-        ));
+        // dataService = new DataService(new MariadbDatabase(
+        //     "shop",
+        //     "shop",
+        //     "titok"
+        // ));
         // ArrayList<Product> productList = dataService.getProducts();
         // System.out.println(productList.get(0).getName());
     }

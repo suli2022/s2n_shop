@@ -3,8 +3,8 @@ package models;
 public class Product {
     int id;
     String name;
-    String itemNumber;
-    int count;
+    String itemnumber;
+    int quantity;
     double price;
     public int getId() {
         return id;
@@ -19,16 +19,16 @@ public class Product {
         this.name = name;
     }
     public String getItemNumber() {
-        return itemNumber;
+        return itemnumber;
     }
-    public void setItemNumber(String itemNumber) {
-        this.itemNumber = itemNumber;
+    public void setItemNumber(String itemnumber) {
+        this.itemnumber = itemnumber;
     }
     public int getCount() {
-        return count;
+        return this.quantity;
     }
-    public void setCount(int count) {
-        this.count = count;
+    public void setCount(int quantity) {
+        this.quantity = quantity;
     }
     public double getPrice() {
         return price;

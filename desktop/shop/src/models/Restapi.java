@@ -31,7 +31,7 @@ public class Restapi {
         return text;
     }
     public String tryGetProductsAsString() throws IOException {
-        String host = "http://[::1]:3000/";
+        String host = "http://localhost:8000/api/";
         String endpoint = "products";
         String urlStr = host + endpoint;
         URL url = new URL(urlStr);
@@ -59,6 +59,7 @@ public class Restapi {
         GsonBuilder builder = new GsonBuilder();
         Gson gson = builder.create();
         String text = getProductsAsString();
+        System.out.println("érkezett" + text);
         Product[] productArray =  gson.fromJson(text, Product[].class);
         ArrayList<Product> productList = 
             new ArrayList<>(Arrays.asList(productArray));
