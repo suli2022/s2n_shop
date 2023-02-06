@@ -7,12 +7,15 @@ public class MainTab extends TabPane {
     Tab productTab;
     Tab loginTab;
     Tab registryTab;
-    public MainTab() {
+    MainView mainView;
+    public MainTab(MainView mainView ) {
+        this.mainView = mainView;
         this.initComponent();
         this.addComponent();
+        
     }
     private void initComponent() {
-        this.productTab = new Tab("Termékek");
+        this.productTab = new Tab("Termékek", this.mainView);
         this.loginTab = new Tab("Belépés");
         this.registryTab = new Tab("Regisztráció");
     }

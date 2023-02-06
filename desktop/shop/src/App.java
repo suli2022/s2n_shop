@@ -11,6 +11,7 @@ public class App extends Application {
     public void start(Stage stage) {
         MainController mainController = new MainController();
         MainTab mainTab = mainController.getMainTab();
+        
         Scene scene = new Scene(mainTab, 400, 300);
         stage.setScene(scene);
         stage.show();
