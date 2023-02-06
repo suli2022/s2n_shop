@@ -1,4 +1,4 @@
-package models;
+package models.api;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -12,6 +12,8 @@ import java.util.Scanner;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+
+import models.Product;
 
 public class Restapi {
 
