@@ -9,12 +9,12 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  login(user: string, pass: string) {
-    let endpoint = 'signin';
+  login(email: string, pass: string) {
+    let endpoint = 'login';
     let url = environment.apihost + endpoint;
 
     let authData = {
-      name: user,
+      email: email,
       password: pass
     };
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { ApiService } from '../shared/api.service';
 
 @Component({
@@ -7,22 +8,49 @@ import { ApiService } from '../shared/api.service';
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit {
-
-  constructor(private api: ApiService) { }
+  productForm !: FormGroup;
+  constructor(
+    private api: ApiService,
+    private formBuilder: FormBuilder
+    ) { }
 
   ngOnInit(): void {
-    
+    this.productForm = this.formBuilder.group({
+      inputName: [''],
+      inputItemnumber: [''],
+      inputQuantity: [''],
+      inputPrice: ['']
+    });
+  }
+  onClick() {
+    this.addProducts();
   }
   addProducts() {
-    this.api.addProducts('aaa')
+    let data = {
+      name: this.productForm.value.inputName,
+      itemnumber: this.productForm.value.inputItemnumber,
+      quantity: this.productForm.value.inputQuantity,
+      price: this.productForm.value.inputPrice
+    };
+    this.clearField();
+    this.api.addProducts(data)
     .subscribe({
-      next: data => {
+      next: (data:any) => {
         console.log('vissza: ' + data)
       },
-      error: err => {
+      error: (err:any) => {
         console.log('Hiba! A termék felévtele sikertelen!')
       }
-    });    
+    });
+  }
+
+  clearField() {
+    this.productForm.patchValue({
+        inputName: '', 
+        inputItemnumber: '',
+        inputQuantity: '',
+        inputPrice: ''
+      });
   }
 
 }

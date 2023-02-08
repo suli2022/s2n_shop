@@ -14,13 +14,6 @@ export class ApiService {
     let url = environment.apihost + endpoint;
 
     let token = localStorage.getItem('token');
-    
-    let data2 = {
-      name: "billentyűzet",
-      itemNumber: "cab34",
-      count: 25,
-      price: 8
-    };
 
     let headers = new HttpHeaders({
       'Content-Type': 'applicaton/json',
@@ -30,6 +23,6 @@ export class ApiService {
     let httpOption = {
       headers: headers
     };
-    return this.http.post<any>(url, data2, httpOption);
+    return this.http.post<any>(url, data, httpOption);
   }
 }

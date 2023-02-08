@@ -18,15 +18,15 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
-      name: [''],
+      email: [''],
       password: ['']
     });
   }
 
   login() {
-    let user = this.loginForm.value.name;
+    let email = this.loginForm.value.email;
     let pass = this.loginForm.value.password;
-    this.auth.login(user, pass)
+    this.auth.login(email, pass)
     .subscribe({
       next: data => {
         console.log(data.token)
