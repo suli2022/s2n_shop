@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../shared/api.service';
 
 @Component({
@@ -9,6 +9,7 @@ import { ApiService } from '../shared/api.service';
 })
 export class ProductsComponent implements OnInit {
   productForm !: FormGroup;
+  products:any = [];
   constructor(
     private api: ApiService,
     private formBuilder: FormBuilder
@@ -16,16 +17,28 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit(): void {
     this.productForm = this.formBuilder.group({
-      inputName: [''],
+      inputName: ['', Validators.required],
       inputItemnumber: [''],
       inputQuantity: [''],
       inputPrice: ['']
     });
+    this.getProducts();
+  }
+  getProducts() {
+    this.api.getProducts().subscribe({
+      next: (products:any) => {        
+        this.products = products;
+      },
+      error: (err) => {
+        console.log('Hiba! A REST API lekérdezés sikertelen!');
+        console.log(err);
+      }
+    });
   }
   onClick() {
-    this.addProducts();
+    this.addProduct();
   }
-  addProducts() {
+  addProduct() {
     let data = {
       name: this.productForm.value.inputName,
       itemnumber: this.productForm.value.inputItemnumber,
@@ -33,7 +46,7 @@ export class ProductsComponent implements OnInit {
       price: this.productForm.value.inputPrice
     };
     this.clearField();
-    this.api.addProducts(data)
+    this.api.addProduct(data)
     .subscribe({
       next: (data:any) => {
         console.log('vissza: ' + data)

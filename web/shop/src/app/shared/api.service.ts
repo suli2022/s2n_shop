@@ -9,7 +9,13 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  addProducts(data: any) {
+  getProducts() {
+    let endpoint = 'products';
+    let url = environment.apihost + endpoint;
+    return this.http.get<any>(url);
+  }
+
+  addProduct(data: any) {
     let endpoint = 'products';
     let url = environment.apihost + endpoint;
 

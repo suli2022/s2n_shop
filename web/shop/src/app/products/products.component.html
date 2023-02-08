@@ -1,5 +1,3 @@
-<p>products works!</p>
-
 
   <!-- Button trigger modal -->
   <button type="button" class="btn btn-primary" data-bs-toggle="modal" 
@@ -7,12 +5,38 @@
     Hozzáad
   </button>
   
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Név</th>
+        <th>Cikkszám</th>
+        <th>Mennyiség</th>
+        <th>Ár</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let prod of products">
+        <td>{{ prod.id }}</td>
+        <td>{{ prod.name }}</td>
+        <td>{{ prod.itemnumber }}</td>
+        <td>{{ prod.quantity }}</td>
+        <td>{{ prod.price }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+
+
+
+
   <!-- Modal -->
   <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Termék hozzáadása</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
