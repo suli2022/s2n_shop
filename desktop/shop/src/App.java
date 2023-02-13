@@ -3,6 +3,7 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import models.api.AuthService;
+import models.api.TestHttpClient;
 import views.MainTab;
 
 public class App extends Application {
@@ -10,6 +11,7 @@ public class App extends Application {
         launch(args);
     }
     public void start(Stage stage) {
+
         new AuthService()
         .registry("tibi", "tibi@zold.lan", "titok");
 

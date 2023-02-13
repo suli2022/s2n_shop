@@ -16,7 +16,27 @@ public class HttpClient {
     int responseCode;
     public HttpClient() {
     }
-    
+    public String get(String urlStr) {
+        String result;
+        try {
+            result = tryGet(urlStr);
+        } catch (IOException e) {
+            String msg = "Hiba! A GET kérés sikertelen!";
+            System.err.println(msg);
+            result = msg;
+        }
+        return result;
+    }
+    public String tryGet(String urlStr) throws IOException {
+        URL url = new URL(urlStr);
+        HttpURLConnection http = (HttpURLConnection) url.openConnection();
+        http.setRequestMethod("GET");
+        http.connect();
+        this.responseCode = http.getResponseCode();
+        InputStream inputStream = http.getInputStream();
+        String text = convertInputStreamToString(inputStream);        
+        return text;
+    }
     public String post(String url, String data, HashMap<String, String> headers) {
         String result;
         try {
