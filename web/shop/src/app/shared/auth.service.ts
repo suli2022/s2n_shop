@@ -28,4 +28,18 @@ export class AuthService {
     };
     return this.http.post<any>(url, authData, httpOption);
   }
+  logout() {
+    let endpoint = 'logout';
+    let url = environment.apihost + endpoint;
+    let token = localStorage.getItem('token');
+    localStorage.removeItem('token');
+    let headers = new HttpHeaders({
+      'Content-Type': 'applicaton/json',
+      'Authorization': 'Bearer ' + token
+    });
+    let httpOption = {
+      headers: headers
+    };
+    return this.http.post(url, "", httpOption);
+  }
 }
