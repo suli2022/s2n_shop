@@ -1,7 +1,7 @@
 
   <!-- Button trigger modal -->
   <button type="button" class="btn btn-primary" data-bs-toggle="modal" 
-  data-bs-target="#productModal">
+  data-bs-target="#addModal">
     Hozzáad
   </button>
   
@@ -22,6 +22,19 @@
         <td>{{ prod.itemnumber }}</td>
         <td>{{ prod.quantity }}</td>
         <td>{{ prod.price }}</td>
+        <td>
+          <button class="btn btn-danger"
+          (click)="deleteProduct(prod.id)">Törlés</button>
+        </td>
+        <td>
+          <button class="btn btn-primary"
+          (click)="editProduct(prod)"
+          data-bs-toggle="modal" 
+          data-bs-target="#modifyModal"
+          >
+            Szerkesztés
+          </button>
+        </td>
       </tr>
     </tbody>
   </table>
@@ -31,8 +44,8 @@
 
 
 
-  <!-- Modal -->
-  <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <!-- add Modal -->
+  <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -77,3 +90,55 @@
       </div>
     </div>
   </div>
+
+    <!-- modify Modal -->
+    <div class="modal fade" id="modifyModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Termék módosítása</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+  
+           
+            <form [formGroup]="productForm">
+              <div class="mb-3">
+                <label for="inputName" class="form-label">Id</label>
+                <input type="text" class="form-control" id="editInputId"
+                formControlName="editInputId" readonly>
+              </div>
+              <div class="mb-3">
+                <label for="inputName" class="form-label">Név</label>
+                <input type="text" class="form-control" id="editInputName"
+                formControlName="editInputName">              
+              </div>
+              <div class="mb-3">
+                <label for="inputItemnumber" class="form-label">Cikkszám</label>
+                <input type="text" class="form-control" id="editInputItemnumber"
+                formControlName="editInputItemnumber">              
+              </div>
+              <div class="mb-3">
+                <label for="inputQuantity" class="form-label">Mennyiség</label>
+                <input type="text" class="form-control" id="editInputQuantity"
+                formControlName="editInputQuantity">              
+              </div>
+              <div class="mb-3">
+                <label for="inputPrice" class="form-label">Ár</label>
+                <input type="text" class="form-control" id="editInputPrice"
+                formControlName="editInputPrice">              
+              </div>
+            </form>
+  
+  
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" 
+            data-bs-dismiss="modal">Bezárás</button>
+            <button type="button" class="btn btn-primary"
+            data-bs-dismiss="modal"
+            (click)="onClick()">Mentés</button>
+          </div>
+        </div>
+      </div>
+    </div>

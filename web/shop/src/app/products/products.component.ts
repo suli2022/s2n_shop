@@ -17,6 +17,7 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit(): void {
     this.productForm = this.formBuilder.group({
+      inputId: [''],
       inputName: ['', Validators.required],
       inputItemnumber: [''],
       inputQuantity: [''],
@@ -49,7 +50,8 @@ export class ProductsComponent implements OnInit {
     this.api.addProduct(data)
     .subscribe({
       next: (data:any) => {
-        console.log('vissza: ' + data)
+        console.log('vissza: ' + data);
+        this.getProducts();
       },
       error: (err:any) => {
         console.log('Hiba! A termék felévtele sikertelen!')
@@ -64,6 +66,34 @@ export class ProductsComponent implements OnInit {
         inputQuantity: '',
         inputPrice: ''
       });
+  }
+
+  deleteProduct(id: number) {
+    this.api.deleteProduct(id).subscribe({
+      next: (res) => {
+        console.log(res);
+        this.getProducts();
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    });
+  }
+
+  editProduct(product: any) {
+    this.productForm.patchValue({inputId: product.id});
+    this.productForm.patchValue({inputName: product.name});
+    this.productForm.patchValue({inputItemnumber: product.itemnumber});
+    this.productForm.patchValue({inputQuantity: product.quantity});
+    this.productForm.patchValue({inputPrice: product.price});
+  }
+  updateProduct() {
+    let data = {
+      name: this.productForm.value.inputName,
+      itemnumber: this.productForm.value.inputItemnumber,
+      quantity: this.productForm.value.inputQuantity,
+      price: this.productForm.value.inputPrice
+    };    
   }
 
 }

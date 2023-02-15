@@ -31,4 +31,18 @@ export class ApiService {
     };
     return this.http.post<any>(url, data, httpOption);
   }
+
+  deleteProduct(id: number) {
+    let endpoint = 'delete';
+    let url = environment.apihost + endpoint + "/" + id;
+    let token = localStorage.getItem('token');    
+    let headers = new HttpHeaders({
+      'Content-Type': 'applicaton/json',
+      'Authorization': 'Bearer ' + token
+    });
+    let httpOption = {
+      headers: headers
+    };
+    return this.http.delete<any>(url, httpOption);
+  }
 }
