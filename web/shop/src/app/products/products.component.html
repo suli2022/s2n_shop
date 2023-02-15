@@ -102,7 +102,7 @@
           <div class="modal-body">
   
            
-            <form [formGroup]="productForm">
+            <form [formGroup]="editForm">
               <div class="mb-3">
                 <label for="inputName" class="form-label">Id</label>
                 <input type="text" class="form-control" id="editInputId"
@@ -137,7 +137,7 @@
             data-bs-dismiss="modal">Bezárás</button>
             <button type="button" class="btn btn-primary"
             data-bs-dismiss="modal"
-            (click)="onClick()">Mentés</button>
+            (click)="updateProduct()">Mentés</button>
           </div>
         </div>
       </div>

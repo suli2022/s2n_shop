@@ -8,8 +8,11 @@ import { ApiService } from '../shared/api.service';
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit {
+  
   productForm !: FormGroup;
+  editForm !: FormGroup;
   products:any = [];
+
   constructor(
     private api: ApiService,
     private formBuilder: FormBuilder
@@ -17,11 +20,17 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit(): void {
     this.productForm = this.formBuilder.group({
-      inputId: [''],
       inputName: ['', Validators.required],
       inputItemnumber: [''],
       inputQuantity: [''],
       inputPrice: ['']
+    });
+    this.editForm = this.formBuilder.group({
+      editInputId: [''],
+      editInputName: ['', Validators.required],
+      editInputItemnumber: [''],
+      editInputQuantity: [''],
+      editInputPrice: ['']
     });
     this.getProducts();
   }
@@ -81,19 +90,30 @@ export class ProductsComponent implements OnInit {
   }
 
   editProduct(product: any) {
-    this.productForm.patchValue({inputId: product.id});
-    this.productForm.patchValue({inputName: product.name});
-    this.productForm.patchValue({inputItemnumber: product.itemnumber});
-    this.productForm.patchValue({inputQuantity: product.quantity});
-    this.productForm.patchValue({inputPrice: product.price});
+    this.editForm.patchValue({editInputId: product.id});
+    this.editForm.patchValue({editInputName: product.name});
+    this.editForm.patchValue({editInputItemnumber: product.itemnumber});
+    this.editForm.patchValue({editInputQuantity: product.quantity});
+    this.editForm.patchValue({editInputPrice: product.price});
   }
   updateProduct() {
     let data = {
-      name: this.productForm.value.inputName,
-      itemnumber: this.productForm.value.inputItemnumber,
-      quantity: this.productForm.value.inputQuantity,
-      price: this.productForm.value.inputPrice
-    };    
+      id: this.editForm.value.editInputId,
+      name: this.editForm.value.editInputName,
+      itemnumber: this.editForm.value.editInputItemnumber,
+      quantity: this.editForm.value.editInputQuantity,
+      price: this.editForm.value.editInputPrice
+    };
+    this.api.updateProduct(data).subscribe({
+      next: (res) => {
+        console.log(res);
+        this.getProducts();
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    });
+
   }
 
 }
