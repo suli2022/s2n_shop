@@ -9,12 +9,12 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
 import models.DataService;
 import models.Product;
-import models.api.Restapi;
+import models.api.Productapi;
 
 public class MainView extends VBox{
     Label productLabel;
     DataService dataService;
-    Restapi restapi;
+    Productapi restapi;
     TableView<Product> tableView;
     public MainView() {
         productLabel = new Label("Termékek");
@@ -62,7 +62,7 @@ public class MainView extends VBox{
         return productList;
     }
     private void initData() {
-        this.restapi = new Restapi();
+        this.restapi = new Productapi();
         // dataService = new DataService(new MariadbDatabase(
         //     "shop",
         //     "shop",
