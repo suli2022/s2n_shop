@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ApiService } from '../shared/api.service';
+import { ApiService } from '../../shared/api.service';
 
 @Component({
   selector: 'app-products',
