@@ -1,1 +1,24 @@
-<p>buy works!</p>
+
+<div class="products">
+
+    <div class="card float-start m-2" style="width: 18rem;"
+    *ngFor="let product of products">
+        <img src="../../assets/hdd.png" 
+        class="card-img-top m-2" alt="..."
+        style="width: 150px;"
+        >
+        <div class="card-body">
+          <h5 class="card-title">{{product.name}}</h5>
+          <p class="card-text">
+            Cikkszám: {{product.itemnumber}}<br>
+            Darab: {{product.quantity}}<br>
+            Ár: {{product.price}}
+          </p>
+          <a href="#" class="btn btn-primary">
+            Kosárba</a>
+        </div>
+      </div>    
+
+
+
+</div>
