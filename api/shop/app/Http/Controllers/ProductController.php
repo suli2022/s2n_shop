@@ -37,12 +37,13 @@ class ProductController extends BaseController {
             "name" => "required",
             "itemnumber" => "required",
             "quantity" => "required",
-            "price" => "required"
+            "price" => "required",
+            "imgpath" => "required"
         ]);
 
         if( $validator->fails() ) {
 
-            return $this-sendError( $validator, "Hiba" );
+            return $this->sendError( $validator, "Hiba" );
         }
 
         $product = Product::create( $product );
@@ -63,7 +64,7 @@ class ProductController extends BaseController {
 
         if( $validator->fails() ) {
 
-            return $this-sendError( $validator, "Hiba" );
+            return $this->sendError( $validator, "Hiba" );
         }
 
         $product = Product::find( $id );

@@ -14,7 +14,8 @@ class Product extends Model
         "name",
         "itemnumber",
         "quantity",
-        "price"
+        "price",
+        "imgpath"
     ];
 
     public $timestamps = false;
