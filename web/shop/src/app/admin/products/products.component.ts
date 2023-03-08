@@ -23,14 +23,16 @@ export class ProductsComponent implements OnInit {
       inputName: ['', Validators.required],
       inputItemnumber: [''],
       inputQuantity: [''],
-      inputPrice: ['']
+      inputPrice: [''],
+      inputImgpath: ['']
     });
     this.editForm = this.formBuilder.group({
       editInputId: [''],
       editInputName: ['', Validators.required],
       editInputItemnumber: [''],
       editInputQuantity: [''],
-      editInputPrice: ['']
+      editInputPrice: [''],
+      editInputImgpath: ['']
     });
     this.getProducts();
   }
@@ -53,7 +55,8 @@ export class ProductsComponent implements OnInit {
       name: this.productForm.value.inputName,
       itemnumber: this.productForm.value.inputItemnumber,
       quantity: this.productForm.value.inputQuantity,
-      price: this.productForm.value.inputPrice
+      price: this.productForm.value.inputPrice,
+      imgpath: this.productForm.value.inputImgpath
     };
     this.clearField();
     this.api.addProduct(data)
@@ -73,7 +76,8 @@ export class ProductsComponent implements OnInit {
         inputName: '', 
         inputItemnumber: '',
         inputQuantity: '',
-        inputPrice: ''
+        inputPrice: '',
+        inputImgpath: ''
       });
   }
 
@@ -95,6 +99,7 @@ export class ProductsComponent implements OnInit {
     this.editForm.patchValue({editInputItemnumber: product.itemnumber});
     this.editForm.patchValue({editInputQuantity: product.quantity});
     this.editForm.patchValue({editInputPrice: product.price});
+    this.editForm.patchValue({editInputImgpath: product.imgpath});
   }
   updateProduct() {
     let data = {
@@ -102,7 +107,8 @@ export class ProductsComponent implements OnInit {
       name: this.editForm.value.editInputName,
       itemnumber: this.editForm.value.editInputItemnumber,
       quantity: this.editForm.value.editInputQuantity,
-      price: this.editForm.value.editInputPrice
+      price: this.editForm.value.editInputPrice,
+      imgpath: this.editForm.value.editInputImgpath
     };
     this.api.updateProduct(data).subscribe({
       next: (res) => {

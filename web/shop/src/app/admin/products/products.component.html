@@ -13,6 +13,7 @@
         <th>Cikkszám</th>
         <th>Mennyiség</th>
         <th>Ár</th>
+        <th>Képek</th>
       </tr>
     </thead>
     <tbody>
@@ -22,6 +23,7 @@
         <td>{{ prod.itemnumber }}</td>
         <td>{{ prod.quantity }}</td>
         <td>{{ prod.price }}</td>
+        <td>{{ prod.imgpath }}</td>
         <td>
           <button class="btn btn-danger"
           (click)="deleteProduct(prod.id)">Törlés</button>
@@ -76,6 +78,12 @@
               <input type="text" class="form-control" id="inputPrice"
               formControlName="inputPrice">              
             </div>
+            <div class="mb-3">
+              <label for="inputImgpath" class="form-label">Kép</label>
+              <input type="text" class="form-control" id="inputImgpath"
+              formControlName="inputImgPath">              
+            </div>
+
           </form>
 
 
@@ -127,6 +135,11 @@
                 <label for="inputPrice" class="form-label">Ár</label>
                 <input type="text" class="form-control" id="editInputPrice"
                 formControlName="editInputPrice">              
+              </div>
+              <div class="mb-3">
+                <label for="inputImgpath" class="form-label">Kép</label>
+                <input type="text" class="form-control" id="editInputImgpath"
+                formControlName="editInputImgpath">              
               </div>
             </form>
   
