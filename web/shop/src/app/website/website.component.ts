@@ -12,4 +12,6 @@ export class WebsiteComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  logout() {}
+
 }

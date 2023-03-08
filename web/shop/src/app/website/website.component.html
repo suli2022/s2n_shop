@@ -1,6 +1,24 @@
 
 
+<div class="nav justify-content-center">
+    <ul class="nav justify-content-center">
+
+    <li class="nav-item">
+        <a class="nav-link" routerLink="/buy">Termékek</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" routerLink="/cart">Kosár</a>
+    </li>
+
+    <li>
+        <button class="btn btn-primary mt-2"
+        (click)="logout()"
+        >Kilépés</button>
+    </li>
+    </ul>    
+</div>
+
 <div class="container">
-    <h2>Termékek</h2>    
-    <app-buy></app-buy>
+
+    <router-outlet></router-outlet>
 </div>

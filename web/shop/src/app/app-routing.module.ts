@@ -4,6 +4,7 @@ import { AdmComponent } from './admin/adm/adm.component';
 import { LoginComponent } from './admin/login/login.component';
 import { ProductsComponent } from './admin/products/products.component';
 import { BuyComponent } from './buy/buy.component';
+import { CartComponent } from './cart/cart.component';
 import { AuthGuard } from './shared/auth.guard';
 import { WebsiteComponent } from './website/website.component';
 
@@ -18,7 +19,8 @@ const routes: Routes = [
   {
     path: '', component: WebsiteComponent,
     children: [
-      {path: 'buy', component: BuyComponent}     
+      {path: 'buy', component: BuyComponent},
+      {path: 'cart', component: CartComponent}
     ]    
   }
 ];

@@ -1,5 +1,2 @@
+TODO: Kosár az api-ban
 
-TODO: A backend oldalon az adatbázis kiegészítve.
-TODO: Az update-t át kell írni.
-TODO: Utána: A képek útvonal adatbázisból.
-TODO: Utána: Kosár...

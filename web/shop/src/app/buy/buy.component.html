@@ -1,4 +1,6 @@
 
+<h2>Termékek</h2>
+
 <div class="products">
 
     <div class="card float-start m-2" style="width: 18rem;"
@@ -14,8 +16,9 @@
             Darab: {{product.quantity}}<br>
             Ár: {{product.price}}
           </p>
-          <a href="#" class="btn btn-primary">
-            Kosárba</a>
+          <button class="btn btn-primary" (click)="addToCart(product.id)">
+            Kosárba
+          </button>
         </div>
       </div>    
 

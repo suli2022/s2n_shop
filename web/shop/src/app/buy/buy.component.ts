@@ -22,4 +22,10 @@ export class BuyComponent implements OnInit {
       error: (err) => {}
     })
   }
+  // REST API
+  // carts   carts(id, date)
+  // cartitems cartItems (id, productId, cartId)
+  addToCart(id: number){
+    console.log(id)
+  }
 }
