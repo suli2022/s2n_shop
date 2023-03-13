@@ -1,0 +1,2 @@
+TODO: A RegistryView-on szükséges egy ButtonPanel
+TODO: Eseménykezelés
