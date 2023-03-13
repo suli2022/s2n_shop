@@ -9,6 +9,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
 import models.DataService;
 import models.Product;
+import models.api.CheckApi;
 import models.api.Productapi;
 
 public class MainView extends VBox{
@@ -47,7 +48,14 @@ public class MainView extends VBox{
         priceCol.setMinWidth(50);
         priceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
 
-        tableView.setItems(this.getProducts());
+        CheckApi checkApi = new CheckApi();
+        boolean success = checkApi.checkUrl("http://localhost:8000");
+        if(success) {
+            tableView.setItems(this.getProducts());
+        }else {
+            System.out.println("A REST API nem elérhető!");
+        }
+        
 
         tableView.getColumns().add(idCol);
         tableView.getColumns().add(nameCol);

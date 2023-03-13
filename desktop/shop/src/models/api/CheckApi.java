@@ -7,7 +7,7 @@ import java.net.URL;
 public class CheckApi {
     int responseCode;
 
-    public boolean checkUrl(String urlStr) throws IOException {
+    public boolean checkUrl(String urlStr) {
         try {
             tryCheckUrl(urlStr);
             return true;
